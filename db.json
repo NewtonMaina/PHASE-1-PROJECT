@@ -1,0 +1,82 @@
+{
+  "beatsDatabase": [
+    {
+      "id": 1,
+      "title": "NOSTALGIA",
+      "tag": "CENTRAL CEE X JBEE",
+      "price": "30$",
+      "audioSrc": "audio/CENTRAL CEE X JBEE NOSTALGIA TYPEBEAT - BPM 140.wav",
+      "imageSrc": "images/cench 3_imresizer.jpg"
+    },
+    {
+      "id": 2,
+      "title": "BEFORE I GO",
+      "tag": "POLO G",
+      "price": "32$",
+      "audioSrc": "audio/BEFORE_I_GO_POLO_G_TYPEBEAT.wav",
+      "imageSrc": "images/polo_1_imresizer.jpg"
+    },
+    {
+      "id": 3,
+      "title": "SIPPIN",
+      "artists-tag": "FBG MURDA",
+      "price": "60$",
+      "audioSrc": "audio/FBG MURDA Typebeat ~ Sippin ~ BPM 150 D Min Produced by @mp3meech X @6teen.ke.wav",
+      "imageSrc": "images/fbg murda_imresizer.jpg"
+    },
+    {
+      "id": 4,
+      "title": "PRESSURE",
+      "artists-tag": "AJAY",
+      "price": "45$",
+      "audioSrc": "audio/Ajay x nathan Typebeat ~ PRESSURE ~ Produced by 6teen.wav",
+      "imageSrc": "images/ajay_imresizer.jpg"
+    },
+    {
+      "id": 5,
+      "title": "GHAT",
+      "artists-tag": "LIL MAINA",
+      "price": "28$",
+      "audioSrc": "audio/~ GHAT ~ Lil Maina Typebeat Produced by @6teen.ke BPM 102.wav",
+      "imageSrc": "images/download (4)_imresizer.jpg"
+    },
+    {
+      "id": 6,
+      "title": "BLISS",
+      "artists-tag": "4MRFRANKWHITE",
+      "price": "30$",
+      "audioSrc": "audio/BLISS MANABIGGIE TYPEBEAT BPM 103_Current.wav",
+      "imageSrc": "images/4mrFrankwhite_imresizer.jpg"
+    },
+    {
+      "id": 7,
+      "title": "VIOLIN",
+      "artists-tag": "MILASHE",
+      "price": "30$",
+      "audioSrc": "audio/Milashe Typebeat ~ VIOLIN~ Produced by @6teen x @itsyourboykd movie refix.wav",
+      "imageSrc": "images/milashe_imresizer.jpg"
+    },
+    {
+      "id": 8,
+      "title": "FORGOTTEN",
+      "artists-tag": "MILASHE",
+      "price": "50$",
+      "audioSrc": "audio/44 DUGG FORGOTTEN BPM 142 sample.wav",
+      "imageSrc": "images/budguyz_imresizer.jpg"
+    },
+    {
+      "id": 9,
+      "title": "MOMENT FOR LIFE",
+      "artists-tag": "SOSA THE PRODIGY",
+      "price": "30$",
+      "audioSrc": "audio/MOMENT 4 LIFE SOSA_Master.wav",
+      "imageSrc": "images/sosa_imresizer.jpg"
+    },
+    {
+      "id": "3ab9"
+    },
+    {
+      "id": "e6d8"
+    }
+  ]
+}

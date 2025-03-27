@@ -1,0 +1,385 @@
+/* body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    height: 100vh;
+    margin: 0;
+}
+
+#logo{
+    display: flex;
+    width: 200px;
+    height: 200px;
+    float: left;
+    margin-top: -10px;
+}
+
+.hero{
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 45px;
+    padding-left: 29%;
+    padding-right: -20%;
+}
+
+nav ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 10px 25px;
+}
+nav ul li a{
+    font-weight: bold;
+    color:#45a29e;
+    text-decoration: none;
+    text-transform: 400ms;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+nav ul li a:hover{
+    color:#c5c6c7;
+    transition: .4s;
+
+}
+
+h3{
+    font-size: 500%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c5c6c7;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.newsletter form input:first-child{
+    display: inline-block;
+    width: 30%;
+    padding: 14px 130px 14px 15px;
+    border: #66fcf1;
+    outline: none;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30%;
+    box-shadow: 0px 0px 5px #000, 0px 0px 15px #858585
+}
+.newsletter form input:last-child{
+    position: absolute;
+    display: inline-block;
+    outline: none;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 30px;
+    background-color:#45a29e ;
+    color: black;
+    box-shadow: 0px 0px 5px #000, 0px 0px 15px #858585;
+    top: 6px;
+    right: 6px;
+}
+
+.player {
+    background-color:#0b0c10 ;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 5%;
+}
+
+.player  img{
+    grid-template-columns: auto;
+    grid-gap: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #858585;
+
+}
+
+.player  img:hover{
+    filter: brightness(80%);
+}
+
+h2 {
+    font-size: 20px;
+}
+
+p{
+    font-size: 20px;
+    color:#212a31;
+}
+
+button {
+    padding: 10px;
+    background-color: #45a29e ;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color:navy ;
+}
+
+
+
+
+
+
+
+ */
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0b0c10;
+    color: #0b0c10;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+video{
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: fit-content;
+
+}
+
+
+header img{
+    display: flex;
+    width: 200px;
+    height: 200px;
+    float: left;
+    margin-top: -10px;
+}
+    
+nav ul {
+    list-style-type: none;
+    float: right;
+}
+
+nav ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 30px 25px;
+}
+
+nav ul li a {
+    font-weight: bold;
+    color:#45a29e;
+    text-decoration: none;
+    text-transform: 400ms;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+nav ul li a:hover{
+    color:#c5c6c7;
+    transition: .4s;
+}
+
+
+.hero {
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.hero-content h2 {
+    font-size: 400%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c5c6c7;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-right: 200px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.cta-btn {
+    padding: 15px 30px;
+    background-color: #66fcf1;
+    color: black;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+}
+
+.cta-btn:hover {
+    background-color: #c5c6c7;
+}
+
+
+.shop {
+    padding: 60px 0;
+    background-color: #0b0c10;
+}
+
+.shop h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #c5c6c7;
+}
+
+.beat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.beat-item {
+    background-color: #c5c6c5;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.beat-item img {
+    width: 50%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.beat-item h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.beat-item p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.beat-item .btn {
+    padding: 10px 30px;
+    background-color: #0b0c10;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.beat-item .btn:hover {
+    background-color: #66fcf1;
+}
+
+.about {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+}
+
+.about p {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.contact {
+    padding: 60px 0;
+    background-color: #fff;
+}
+
+.contact h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.contact form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact input, .contact textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contact button {
+    padding: 15px 30px;
+    background-color: #f04e23;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+}
+
+.contact button:hover {
+    background-color: #d9431a;
+}
+
+form{
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.new-beat input, .new-beat textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.new-beat button {
+    padding: 15px 30px;
+    background-color: #f04e23;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+}
+
+.new-beat button:hover {
+    background-color: #d9431a;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
