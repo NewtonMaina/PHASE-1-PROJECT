@@ -1,4 +1,7 @@
+const baseUrl = "https://sample-project-wheat-five.vercel.app/beatsDatabase";
+
 let beatsDatabase = [];
+
 
 const beatGrid = document.getElementById('beat-grid');
 const beatForm = document.getElementById('beat-form');
