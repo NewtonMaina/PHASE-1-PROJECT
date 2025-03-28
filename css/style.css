@@ -26,6 +26,7 @@ video{
 }
 
 
+
 header img{
     display: flex;
     width: 200px;
@@ -108,7 +109,7 @@ nav ul li a:hover{
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 30px;
-    color: #0b0c10;
+    color: #c5c6c7;
 }
 
 .beat-grid {
@@ -118,7 +119,7 @@ nav ul li a:hover{
 }
 
 .beat-item {
-    background-color: #0b0c10;
+    background-color: #c5c6c7;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 8px;

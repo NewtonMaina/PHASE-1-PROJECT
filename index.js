@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
 
         {
-            id: 7,
+            id: generateUniqueId(),
             title: "VIOLIN",
             tag: "MILASHE",
             price: 30,
