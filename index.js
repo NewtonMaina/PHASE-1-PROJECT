@@ -1,147 +1,202 @@
-// Initialize an array to store beats (this will act as your "database")
-let beatsDatabase = [
-    {
-        id: 1,
-        title: "NOSTALGIA",
-        artistTag: "CENTRAL CEE X JBEE TYPEBEAT",
-        price: 30,
-        audioSrc: "audio/CENTRAL CEE X JBEE NOSTALGIA TYPEBEAT - BPM 140.wav",
-        imageSrc: "images/cench 3_imresizer.jpg"
-    },
-    {
-        id: 2,
-        title: "BEFORE I GO",
-        artistTag: "POLO G TYPEBEAT",
-        price: 32,
-        audioSrc: "audio/BEFORE I GO POLO G TYPEBEAT.wav",
-        imageSrc: "images/polo 1_imresizer.jpg"
-    },
-    {
-        "id": 3,
-        "title": "SIPPIN",
-        "artists-tag": "FBG MURDA",
-        "price": "60$",
-        "audioSrc": "audio/FBG MURDA Typebeat ~ Sippin ~ BPM 150 D Min Produced by @mp3meech X @6teen.ke.wav",
-        "imageSrc": "images/fbg murda_imresizer.jpg"
-      },
-      {
-        "id": 4,
-        "title": "PRESSURE",
-        "artists-tag": "AJAY",
-        "price": "45$",
-        "audioSrc": "audio/Ajay x nathan Typebeat ~ PRESSURE ~ Produced by 6teen.wav",
-        "imageSrc": "images/ajay_imresizer.jpg"
-      },
-      {
-        "id": 5,
-        "title": "GHAT",
-        "artists-tag": "LIL MAINA",
-        "price": "28$",
-        "audioSrc": "audio/~ GHAT ~ Lil Maina Typebeat Produced by @6teen.ke BPM 102.wav",
-        "imageSrc": "images/download (4)_imresizer.jpg"
-      },
-      {
-        "id": 6,
-        "title": "BLISS",
-        "artists-tag": "4MRFRANKWHITE",
-        "price": "30$",
-        "audioSrc": "audio/BLISS MANABIGGIE TYPEBEAT BPM 103_Current.wav",
-        "imageSrc": "images/4mrFrankwhite_imresizer.jpg"
-      },
-      {
-        "id": 7,
-        "title": "VIOLIN",
-        "artists-tag": "MILASHE",
-        "price": "30$",
-        "audioSrc": "audio/Milashe Typebeat ~ VIOLIN~ Produced by @6teen x @itsyourboykd movie refix.wav",
-        "imageSrc": "images/milashe_imresizer.jpg"
-      },
-      {
-        "id": 8,
-        "title": "FORGOTTEN",
-        "artists-tag": "MILASHE",
-        "price": "50$",
-        "audioSrc": "audio/44 DUGG FORGOTTEN BPM 142 sample.wav",
-        "imageSrc": "images/budguyz_imresizer.jpg"
-      },
-      {
-        "id": 9,
-        "title": "MOMENT FOR LIFE",
-        "artists-tag": "SOSA THE PRODIGY",
-        "price": "30$",
-        "audioSrc": "audio/MOMENT 4 LIFE SOSA_Master.wav",
-        "imageSrc": "images/sosa_imresizer.jpg"
-      },
-      {
-        "id": "3ab9"
-      },
-      {
-        "id": "e6d8"
-      }
-    ]
+let beatsDatabase = [];
+
+const beatGrid = document.getElementById('beat-grid');
+const beatForm = document.getElementById('beat-form');
+const addBeatBtn = document.getElementById('add-beat-btn');
+const updateBeatBtn = document.getElementById('update-beat-btn');
+
+
+
+
+function createBeat(beat) {
+    if (!beat.title || !beat.tag || !beat.price || !beat.audioSrc || !beat.imageSrc) {
+        displayError('All fields are required');
+        return false;
+    }
+
+    beat.id = generateUniqueId();
+
+    beatsDatabase.push(beat);
+    
+    renderBeats();
+    resetBeatForm();
+    return true;
+}
 
 function renderBeats() {
-    const beatGrid = document.querySelector('.beat-grid');
-    beatGrid.innerHTML = ''; 
+    beatGrid.innerHTML = '';
+
     beatsDatabase.forEach(beat => {
         const beatItem = document.createElement('div');
         beatItem.classList.add('beat-item');
-        
         beatItem.innerHTML = `
             <img src="${beat.imageSrc}" alt="${beat.title}">
             <h3>${beat.title}</h3>
-            <p>${beat.artistTag}<br>Price: $${beat.price}</p>
+            <p>${beat.tag}<br>Price: $${beat.price}</p>
             <audio controls src="${beat.audioSrc}"></audio>
-            <a href="#" class="btn" onclick="removeBeat(${beat.id})">Buy Now</a>
+            <div class="beat-actions">
+                <button onclick="editBeat('${beat.id}')">Edit</button>
+                <button onclick="deleteBeat('${beat.id}')">Delete</button>
+                <button onclick="buyBeat('${beat.id}')">Buy Now</button>
+            </div>
         `;
         
         beatGrid.appendChild(beatItem);
     });
 }
 
-function addBeat(event) {
-    event.preventDefault();  
+function updateBeat(id, updatedBeat) {
+    const index = beatsDatabase.findIndex(beat => beat.id === id);
     
-    const title = document.getElementById('title').value;
-    const artistTag = document.getElementById('tag').value;
-    const price = document.getElementById('price').value;
-    const audioSrc = document.getElementById('audiosrc').value;
-    const imageSrc = document.getElementById('imageSrc').value;
-
-    if (!title || !artistTag || !price || !audioSrc || !imageSrc) {
-        alert("Please fill out all fields");
-        return;
-    }
-
-    const newBeat = {
-        id: beatsDatabase.length + 1, 
-        title,
-        artistTag,
-        price: parseFloat(price),
-        audioSrc,
-        imageSrc
-    };
-
-    beatsDatabase.push(newBeat);
-
-    renderBeats();
-
-    document.getElementById('title').value = '';
-    document.getElementById('tag').value = '';
-    document.getElementById('price').value = '';
-    document.getElementById('audiosrc').value = '';
-    document.getElementById('imageSrc').value = '';
-}
-
-function removeBeat(id) {
-    const beatIndex = beatsDatabase.findIndex(beat => beat.id === id);
-    
-    if (beatIndex !== -1) {
-        beatsDatabase.splice(beatIndex, 1);
+    if (index !== -1) {
+        beatsDatabase[index] = { ...beatsDatabase[index], ...updatedBeat };
         renderBeats();
-    } else {
-        console.log("Beat not found");
+        resetBeatForm();
+        return true;
+    }
+    
+    displayError('Beat not found');
+    return false;
+}
+
+function deleteBeat(id) {
+    const index = beatsDatabase.findIndex(beat => beat.id === id);
+    
+    if (index !== -1) {
+        beatsDatabase.splice(index, 1);
+        renderBeats();
+        return true;
+    }
+    
+    displayError('Beat not found');
+    return false;
+}
+
+function generateUniqueId() {
+    return '_' + Math.random().toString(36).substr(2, 9);
+}
+
+function displayError(message) {
+    alert(message);
+}
+
+function resetBeatForm() {
+    beatForm.reset();
+    addBeatBtn.textContent = 'Add Beat';
+    updateBeatBtn.style.display = 'none';
+}
+
+function editBeat(id) {
+    const beatToEdit = beatsDatabase.find(beat => beat.id === id);
+    
+    if (beatToEdit) {
+        document.getElementById('title').value = beatToEdit.title;
+        document.getElementById('tag').value = beatToEdit.tag;
+        document.getElementById('price').value = beatToEdit.price;
+        document.getElementById('audiosrc').value = beatToEdit.audioSrc;
+        document.getElementById('imageSrc').value = beatToEdit.imageSrc;
+        
+        addBeatBtn.textContent = 'Save Changes';
+        updateBeatBtn.style.display = 'inline-block';
+        
+        updateBeatBtn.dataset.editId = id;
     }
 }
 
-window.onload = renderBeats;
+function buyBeat(id) {
+    const beatToBuy = beatsDatabase.find(beat => beat.id === id);
+    
+    if (beatToBuy) {
+        alert(`Purchasing beat: ${beatToBuy.title} for $${beatToBuy.price}`);
+    }
+}
+
+beatForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const beat = {
+        title: document.getElementById('title').value,
+        tag: document.getElementById('tag').value,
+        price: document.getElementById('price').value,
+        audioSrc: document.getElementById('audiosrc').value,
+        imageSrc: document.getElementById('imageSrc').value
+    };
+    
+    createBeat(beat);
+});
+
+updateBeatBtn.addEventListener('click', function() {
+    const id = this.dataset.editId;
+    
+    const updatedBeat = {
+        title: document.getElementById('title').value,
+        tag: document.getElementById('tag').value,
+        price: document.getElementById('price').value,
+        audioSrc: document.getElementById('audiosrc').value,
+        imageSrc: document.getElementById('imageSrc').value
+    };
+    
+    updateBeat(id, updatedBeat);
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const initialBeats = [
+        {
+            id: generateUniqueId(),
+            title: "NOSTALGIA",
+            tag: "CENTRAL CEE X JBEE TYPEBEAT",
+            price: 30,
+            audioSrc: "audio/CENTRAL CEE X JBEE NOSTALGIA TYPEBEAT - BPM 140.wav",
+            imageSrc: "images/cench 3_imresizer.jpg"
+        },
+
+        {
+            id: generateUniqueId(),
+            title: "GHAT",
+            tag: "LIL MAINA TYPEBEAT",
+            price: 28,
+            audioSrc: "audio/~ GHAT ~ Lil Maina Typebeat Produced by @6teen.ke BPM 102.wav",
+            imageSrc: "images/download (4)_imresizer.jpg"
+        },
+
+        {
+            id: generateUniqueId(),
+            title: "SIPPIN",
+            tag: "FBG MURDA TYPEBEAT",
+            price: 60,
+            audioSrc: "audio/FBG MURDA Typebeat ~ Sippin ~ BPM 150 D Min Produced by @mp3meech X @6teen.ke.wav",
+            imageSrc: "images/fbg murda_imresizer.jpg"
+        },
+        {
+            id: generateUniqueId(),
+            title: "BLISS",
+            tag: "4MRFRANKWHITE",
+            price: 30,
+            audioSrc: "audio/BLISS MANABIGGIE TYPEBEAT BPM 103_Current.wav",
+            imageSrc: "images/4mrFrankwhite_imresizer.jpg"
+        },
+
+        {
+            id: 7,
+            title: "VIOLIN",
+            tag: "MILASHE",
+            price: 30,
+            audioSrc: "audio/Milashe Typebeat ~ VIOLIN~ Produced by @6teen x @itsyourboykd movie refix.wav",
+            imageSrc: "images/milashe_imresizer.jpg"
+        },
+
+        {
+             id: generateUniqueId(),
+            title: "FORGOTTEN",
+            tag: "BUDGUYZ",
+            price: 50,
+            audioSrc: "audio/44 DUGG FORGOTTEN BPM 142 sample.wav",
+            imageSrc: "images/budguyz_imresizer.jpg"
+        }
+
+    ];
+    
+    beatsDatabase.push(...initialBeats);
+    renderBeats();
+});

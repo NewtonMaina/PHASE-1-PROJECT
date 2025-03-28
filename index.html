@@ -6,136 +6,68 @@
     <meta name="description" content="The best online beat store for hip-hop, rap, and electronic music beats.">
     <title>Beatstore - Buy Beats Online</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="index.js"></script>
 </head>
 <body>
-
-     <section class="video">
+    <section class="video">
         <video controls loop autoplay src="images/e51ad0d220d458af0c25c543d8f679a1 (2).mp4"></video>
-     </section>
+    </section>
 
     <header>
         <div class="container">
             <img src="images/WhatsApp_Image_2024-01-26_at_7.31.42_PM-removebg-preview.png" alt="logo">
             <nav>
                 <ul>
-                    <li><a href="Home">Home</a></li>
-                    <li><a href="Shop">Shop</a></li>
-                    <li><a href="About">About</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#shop">Shop</a></li>
+                    <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-
     
     <section id="home" class="hero">
         <div class="hero-content">
             <h2>Find Your Perfect Beat</h2>
             <p>Buy high-quality beats for your next project</p>
-            <a href="Shop" class="cta-btn">Shop Now</a>
+            <a href="#shop" class="cta-btn">Shop Now</a>
         </div>
     </section>
 
     <section id="shop" class="shop">
         <div class="container">
             <h2>Top Beats</h2>
-            <div class="beat-grid">
-                
-                <div class="beat-item">
-                    <img src="images/cench 3_imresizer.jpg" alt="cench-image">
-                    <h3>NOSTALGIA</h3>
-                    <p>CENTRAL CEE X JBEE TYPEBEAT<br>Price: $30</p>
-                    <audio controls src="audio/CENTRAL CEE X JBEE NOSTALGIA TYPEBEAT - BPM 140.wav"></audio>
-                    <a href="#" class="btn">Buy Now</a>
-                </div>
-                <div class="beat-item">
-                    <img src="images/polo 1_imresizer.jpg" alt="polo-image">
-                    <h3>BEFORE I GO</h3>
-                    <p>POLO G TYPEBEAT <br>Price: $32</p>
-                    <audio controls src="audio/BEFORE I GO POLO G TYPEBEAT.wav"></audio>
-                    <a href="#" class="btn">Buy Now</a>
-                </div>
-                <div class="beat-item">
-                    <img src="images/fbg murda_imresizer.jpg" alt="fbg-image">
-                    <h3>SIPPIN</h3>
-                    <p>FBG MURDA TYPEBEAT <br>Price: $60</p>
-                    <audio controls src="audio/FBG MURDA Typebeat ~ Sippin ~ BPM 150 D Min Produced by @mp3meech X @6teen.ke.wav"></audio>
-                    <a href="#" class="btn">Buy Now</a>
-                </div>
-                <div class="beat-item">
-                    <img src="images/ajay_imresizer.jpg" alt="ajay-image">
-                    <h3>PRESSURE</h3>
-                    <p>AJAY BURUKLYN BOY 1 TYPEBEAT <br>Price: $30</p>
-                    <audio controls src="audio/Ajay x nathan Typebeat ~ PRESSURE ~ Produced by 6teen.wav"></audio>
-                    <a href="#" class="btn">Buy Now</a>
-                </div>
-                <div class="beat-item">
-                    <img src="images/download (4)_imresizer.jpg" alt="maina-image">
-                    <h3>GHAT</h3>
-                    <p>LIL MAINA TYPEBEAT <br>Price: $28</p>
-                    <audio controls src="audio/~ GHAT ~ Lil Maina Typebeat Produced by @6teen.ke BPM 102.wav"></audio>
-                    <a href="#" class="btn">Buy Now</a>
-                </div>
-                <div class="beat-item">
-                    <img src="images/4mrFrankwhite_imresizer.jpg" alt="4MrFrankwhite-image">
-                    <h3>BLISS</h3>
-                    <p>4MRFRANKWHITE TYPEBEAT <br>Price: $30</p>
-                    <audio controls src="audio/BLISS MANABIGGIE TYPEBEAT BPM 103_Current.wav"></audio>
-                    <a href="#" class="btn">Buy Now</a>
-                </div>
-                <div class="beat-item">
-                    <img src="images/milashe_imresizer.jpg" alt="milashe-image">
-                    <h3>VIOLIN</h3>
-                    <p>MILASHE TYPEBEAT <br>Price: $30</p>
-                    <audio controls src="audio/Milashe Typebeat ~ VIOLIN~ Produced by @6teen x @itsyourboykd movie refix.wav"></audio>
-                    <a href="#" class="btn">Buy Now</a>
-                </div>
-                <div class="beat-item">
-                    <img src="images/budguyz_imresizer.jpg" alt="budguyz-image">
-                    <h3>FORGOTTEN</h3>
-                    <p>BUDGUYZ TYPEBEAT <br>Price: $50</p>
-                    <audio controls src="audio/44 DUGG FORGOTTEN BPM 142 sample.wav"></audio>
-                    <a href="#" class="btn">Buy Now</a>
-                </div>
-                <div class="beat-item">
-                    <img src="images/sosa_imresizer.jpg" alt="sosa-image">
-                    <h3>MOMENT FOR LIFE</h3>
-                    <p>SOSA THE PRODIGY TYPEBEAT <br>Price: $30</p>
-                    <audio controls src="audio/MOMENT 4 LIFE SOSA_Master.wav"></audio>
-                    <a href="#" class="btn">Buy Now</a>
-                </div>
-            </div>
+            <div class="beat-grid" id="beat-grid"></div>
         </div>
     </section>
 
-
     <section id="new-beat" class="new-beat">
-        <form action="#"></form>
         <h2>Add a new beat</h2>
-        <input type="text" id="title" placeholder="Title">
-        <input type="text" id="tag" placeholder="Tag">
-        <input type="number" id="price" placeholder="Price">
-        <input type="text" id="audiosrc" placeholder="AudioURL">
-        <input type="text" id="imageSrc" placeholder="ImageURL">
-        <button onclick="addBeat()">Add Beat</button>
-        <button onclick="removeBeat()">Remove Beat</button>
+        <form id="beat-form">
+            <input type="text" id="title" placeholder="Title" required>
+            <input type="text" id="tag" placeholder="Artist Tag" required>
+            <input type="number" id="price" placeholder="Price" required min="0">
+            <input type="text" id="audiosrc" placeholder="Audio Source" required>
+            <input type="text" id="imageSrc" placeholder="Image Source" required>
+            <div class="form-actions">
+                <button type="submit" id="add-beat-btn">Add Beat</button>
+                <button type="button" id="update-beat-btn">Update Beat</button>
+            </div>
+        </form>
     </section>
-
 
     <section id="about" class="about">
         <div class="container">
             <h2>About Beatstore</h2>
-            <p>At Beatstore, we provide high-quality beats for musicians, producers, and artists. Whether you're working on a new track or need something to vibe to, we’ve got you covered.</p>
+            <p>At Beatstore, we provide high-quality beats for musicians, producers, and artists. Whether you're working on a new track or need something to vibe to, we've got you covered.</p>
         </div>
     </section>
-
 
     <section id="contact" class="contact">
         <div class="container">
             <h2>Contact Us</h2>
-            <p>If you have any questions, feel free to reach out!</p>
-            <form action="#">
+            <p>For any Inquiries, feel free to reach out!</p>
+            <form id="contact-form">
                 <input type="text" name="name" placeholder="Your Name" required>
                 <input type="email" name="email" placeholder="Your Email" required>
                 <textarea name="message" placeholder="Your Message" required></textarea>
@@ -144,12 +76,12 @@
         </div>
     </section>
 
-
     <footer>
         <div class="container">
             <p>&copy; 2025 Beatstore. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <script src="index.js"defer></script>
 </body>
 </html>
